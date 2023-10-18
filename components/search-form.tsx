@@ -3,7 +3,7 @@
 export default function SearchForm() {
   return (
     <form>
-      <div className='flex flex-col gap-[50px]'>
+      <div className='flex flex-col lg:flex-row lg:justify-between lg:items-center gap-[50px]'>
         <div className='bg-white dark:bg-dm-db-element relative py-4 px-8 flex items-center gap-6 shadow-md rounded-md'>
           <input
             type='text'

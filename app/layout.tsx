@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito_Sans } from "next/font/google";
 import clsx from "clsx";
 import "./globals.css";
+import Header from "./header";
 
 const nunito_sans = Nunito_Sans({ subsets: ["latin"] });
 
@@ -18,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={clsx(nunito_sans.className, "transition-colors")}>
-        {children}
+        <Header />
+        <main className='bg-lm-vlg-background dark:bg-dm-vdb-background'>
+          {children}
+        </main>
       </body>
     </html>
   );
