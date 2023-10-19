@@ -2,8 +2,8 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className='relative z-50 bg-white dark:bg-dm-db-element shadow-md py-10 lg:py-7 px-5'>
-      <div className='max-w-[1280px] mx-auto flex justify-between'>
+    <header className='relative z-50 bg-white dark:bg-dm-db-element shadow-md h-20 px-4 flex items-center'>
+      <div className='max-w-[1280px] w-full mx-auto flex justify-between'>
         <h1 className='font-extrabold text-lg lg:text-2xl text-lm-vdb-text dark:text-white'>
           <Link href={"/"}>Where in the world?</Link>
         </h1>

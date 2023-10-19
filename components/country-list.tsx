@@ -96,21 +96,21 @@ const COUNTRY_LIST: Country[] = [
 
 export default function CountryList() {
   return (
-    <ul className='grid lg:grid-cols-4 gap-12 lg:gap-[72px]'>
+    <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-[72px]'>
       {COUNTRY_LIST.map(
         ({ capital, flags, name, population, region }, index) => {
           return (
             <li
               key={`${name}-${index}`}
-              className='bg-white dark:bg-dm-db-element shadow-md rounded-md overflow-hidden flex flex-col'
+              className='group bg-white dark:bg-dm-db-element shadow-md rounded-md overflow-hidden flex flex-col'
             >
-              <figure className='flex-1 h-[200px] lg:h-40 overflow-hidden relative'>
+              <figure className='h-40 overflow-hidden relative'>
                 <Image
                   alt={name}
                   src={flags.svg}
                   width={500}
                   height={103}
-                  className='h-full w-full object-cover'
+                  className='transition-transform duration-500 group-hover:scale-125 h-full w-full object-cover'
                 />
                 <Link
                   // todo
@@ -122,8 +122,8 @@ export default function CountryList() {
                   <span className='sr-only'>Learn more about {name}</span>
                 </Link>
               </figure>
-              <div className='text-lm-vdb-text dark:text-white flex-1 px-8 pt-8 pb-0 lg:px-6 lg:pt-6 flex flex-col gap-6'>
-                <h2 className='text-[22px] lg:text-lg font-extrabold'>
+              <div className='text-lm-vdb-text dark:text-white px-6 pt-6 pb-11 lg:px-6 lg:pt-6 flex flex-col gap-[15px]'>
+                <h2 className='text-lg lg:text-lg font-extrabold'>
                   <Link
                     href={`/${name}`}
                     // todo
@@ -132,14 +132,14 @@ export default function CountryList() {
                     {name}
                   </Link>
                 </h2>
-                <div className='flex flex-col gap-2'>
-                  <p className='font-semibold text-lg lg:text-sm'>
+                <div className='flex flex-col gap-[5px]'>
+                  <p className='font-semibold text-sm'>
                     Population: <span className='font-light'>{population}</span>
                   </p>
-                  <p className='font-semibold text-lg lg:text-sm'>
+                  <p className='font-semibold text-sm'>
                     Region: <span className='font-light'>{region}</span>
                   </p>
-                  <p className='font-semibold text-lg lg:text-sm'>
+                  <p className='font-semibold text-sm'>
                     Capital: <span className='font-light'>{capital}</span>
                   </p>
                 </div>
