@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={clsx(nunito_sans.className, "transition-colors")}>
         <Header />
+
         <main className='bg-lm-vlg-background dark:bg-dm-vdb-background'>
           {children}
         </main>

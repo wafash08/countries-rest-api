@@ -1,6 +1,14 @@
 "use client";
+import { useState } from "react";
+import FilterRegionBox from "./filter-region-box";
 
 export default function SearchForm() {
+  const [region, setRegion] = useState<string>("");
+
+  function handleClickRegion(name: string) {
+    setRegion(name);
+  }
+
   return (
     <form>
       <div className='flex flex-col justify-start lg:flex-row lg:justify-between lg:items-center gap-[40px]'>
@@ -40,20 +48,10 @@ export default function SearchForm() {
           </button>
         </div>
 
-        <div className=''>
-          <select
-            name='regions'
-            id='regions'
-            className='border border-red-500 appearance-none bg-white px-6 text-[15px] text-lm-vdb-text w-full'
-          >
-            <option value='all'>Filter by Region</option>
-            <option value='africa'>africa</option>
-            <option value='america'>america</option>
-            <option value='asia'>asia</option>
-            <option value='europe'>europe</option>
-            <option value='oceania'>oceania</option>
-          </select>
-        </div>
+        <FilterRegionBox
+          handleClickRegion={handleClickRegion}
+          region={region}
+        />
       </div>
     </form>
   );
