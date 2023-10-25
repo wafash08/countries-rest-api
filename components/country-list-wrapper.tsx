@@ -5,7 +5,7 @@ import CountryListSkeleton from "./country-list-skeleton";
 
 async function getAllCountries() {
   const allCountries = fetch("https://restcountries.com/v3.1/all");
-  return allCountries;
+  return (await allCountries).json();
 }
 
 export default async function CountryListWrapper() {
@@ -20,7 +20,7 @@ export default async function CountryListWrapper() {
       <section className='mt-8 lg:mt-12 px-14 sm:px-4 pb-16'>
         <div className='max-w-[1280px] mx-auto'>
           <Suspense fallback={<CountryListSkeleton />}>
-            <CountryList />
+            <CountryList COUNTRY_LIST={allCountries} />
           </Suspense>
         </div>
       </section>
