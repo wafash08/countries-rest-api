@@ -1,6 +1,6 @@
 function CountryItemSkeleton() {
   return (
-    <li className='animate-pulse duration-200 shadow-md rounded-md overflow-hidden flex flex-col'>
+    <li className='animate-pulse duration-300 shadow-md rounded-md overflow-hidden flex flex-col'>
       <div className='flex items-center justify-center h-40 bg-gray-300 dark:bg-gray-700'>
         <svg
           aria-hidden='true'
@@ -26,15 +26,27 @@ function CountryItemSkeleton() {
 }
 export default function CountryListSkeleton() {
   return (
-    <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-[72px]'>
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-      <CountryItemSkeleton />
-    </ul>
+    <>
+      <section className='pt-6 lg:pt-12 px-4'>
+        <div className='animate-pulse duration-300 max-w-[1280px] mx-auto flex flex-col justify-start lg:flex-row lg:justify-between lg:items-center gap-[40px]'>
+          <div className='rounded-md h-12 lg:h-14 w-full sm:w-[480px] bg-gray-200 dark:bg-gray-700' />
+          <div className='rounded-md h-12 lg:h-14 w-[200px] bg-gray-200 dark:bg-gray-700' />
+        </div>
+      </section>
+      <section className='mt-8 lg:mt-12 px-14 sm:px-4 pb-16'>
+        <div className='max-w-[1280px] mx-auto'>
+          <ul className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 lg:gap-[72px]'>
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+            <CountryItemSkeleton />
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }

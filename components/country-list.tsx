@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Country } from "./types";
 
+export function formatNumber(number: number) {
+  return new Intl.NumberFormat().format(number);
+}
+
 type CountryListProps = {
   COUNTRY_LIST: Country[];
 };
@@ -22,7 +26,7 @@ export default function CountryList({ COUNTRY_LIST }: CountryListProps) {
                   src={flags.svg}
                   width={500}
                   height={103}
-                  className='transition-transform duration-500 group-hover:scale-125 h-full w-full object-cover'
+                  className='transition-transform duration-500 group-hover:scale-110 h-full w-full object-cover'
                 />
                 <Link
                   // todo
@@ -37,7 +41,7 @@ export default function CountryList({ COUNTRY_LIST }: CountryListProps) {
                 </Link>
               </figure>
               <div className='text-lm-vdb-text dark:text-white px-6 pt-6 pb-11 lg:px-6 lg:pt-6 flex flex-col gap-[15px]'>
-                <h2 className='text-lg lg:text-lg font-extrabold'>
+                <h2 className='text-lg lg:text-lg font-extrabold group-hover:underline'>
                   <Link
                     href={`/${name.common}`}
                     // todo
@@ -48,7 +52,10 @@ export default function CountryList({ COUNTRY_LIST }: CountryListProps) {
                 </h2>
                 <div className='flex flex-col gap-[5px]'>
                   <p className='font-semibold text-sm'>
-                    Population: <span className='font-light'>{population}</span>
+                    Population:{" "}
+                    <span className='font-light'>
+                      {formatNumber(population)}
+                    </span>
                   </p>
                   <p className='font-semibold text-sm'>
                     Region: <span className='font-light'>{region}</span>

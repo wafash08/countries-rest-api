@@ -15,6 +15,9 @@ const config: Config = {
         "lm-dg-input": "#858585",
         "lm-vlg-background": "#fafafa",
       },
+      transitionProperty: {
+        expanded: "transform, visibility, opacity",
+      },
     },
   },
   plugins: [],

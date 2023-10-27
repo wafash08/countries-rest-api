@@ -3,7 +3,16 @@
 @tailwind utilities;
 
 li[aria-selected="true"] {
-  background: #eee;
+  --bg-color: #eee;
+  --border-color: #ccc;
+  background: var(--bg-color);
   border-right-width: 4px;
-  border-right-color: #ccc;
+  border-right-color: var(--border-color);
+}
+
+@media (prefers-color-scheme: dark) {
+  li[aria-selected="true"] {
+    --bg-color: #666;
+    --border-color: #eee;
+  }
 }

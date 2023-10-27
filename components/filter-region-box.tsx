@@ -1,7 +1,8 @@
+"use client";
 import clsx from "clsx";
 import { useCallback, useEffect, useState } from "react";
 
-const REGION_LIST = ["Africa", "America", "Asia", "Europe", "Oceania"];
+const REGION_LIST = ["Africa", "Americas", "Asia", "Europe", "Oceania"];
 
 type FilterRegionBoxProps = {
   handleClickRegion: (regionName: string) => void;
@@ -120,7 +121,7 @@ export default function FilterRegionBox({
     <div className='relative z-10 text-sm' data-root='listbox-root'>
       <button
         type='button'
-        className='w-[200px] bg-white shadow flex justify-between items-center px-5 py-[18px] rounded'
+        className='w-[200px] bg-white dark:bg-dm-db-element text-lm-vdb-text dark:text-white shadow flex justify-between items-center px-5 h-12 lg:h-14 rounded'
         onClick={() => setIsExpanded(!isExpanded)}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -135,7 +136,7 @@ export default function FilterRegionBox({
           viewBox='0 0 512 512'
           width={16}
           className={clsx(
-            "transition-transform",
+            "transition-transform duration-200",
             isExpanded ? "rotate-180" : "rotate-0"
           )}
         >
@@ -151,7 +152,7 @@ export default function FilterRegionBox({
       </button>
       <ul
         className={clsx(
-          "absolute top-full left-0 bg-white w-[200px] shadow rounded py-5 flex flex-col gap-1 mt-1 transition-expanded origin-top duration-300",
+          "absolute top-full left-0 bg-white dark:bg-dm-db-element text-dm-db-element dark:text-white w-[200px] shadow rounded py-5 flex flex-col gap-1 mt-1 transition-expanded origin-top duration-300",
           isExpanded
             ? "scale-y-100 visible opacity-100"
             : "scale-y-0 invisible opacity-0"
@@ -167,7 +168,7 @@ export default function FilterRegionBox({
               aria-selected={index === activeIndex}
               onMouseOver={() => setActiveIndex(index)}
               role='option'
-              className='py-1 px-5 rounded'
+              className='py-1 px-5'
             >
               <button
                 type='button'

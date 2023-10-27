@@ -1,27 +1,41 @@
-import { Suspense } from "react";
+"use client";
+import { useState } from "react";
 import CountryList from "./country-list";
 import SearchForm from "./search-form";
-import CountryListSkeleton from "./country-list-skeleton";
+import { Country } from "./types";
 
-async function getAllCountries() {
-  const allCountries = fetch("https://restcountries.com/v3.1/all");
-  return (await allCountries).json();
-}
+type CountryListWrapperProps = {
+  COUNTRY_LIST: Country[];
+};
 
-export default async function CountryListWrapper() {
-  const allCountries = await getAllCountries();
+export default function CountryListWrapper({
+  COUNTRY_LIST,
+}: CountryListWrapperProps) {
+  const [region, setRegion] = useState<string>("");
+
+  function handleClickRegion(name: string) {
+    setRegion(name);
+  }
+
+  let filteredCountryList: Country[] = [];
+  if (!region) {
+    filteredCountryList = COUNTRY_LIST;
+  } else {
+    filteredCountryList = COUNTRY_LIST.filter(
+      country => country.region === region
+    );
+  }
+
   return (
     <>
       <section className='pt-6 lg:pt-12 px-4'>
         <div className='max-w-[1280px] mx-auto'>
-          <SearchForm />
+          <SearchForm region={region} selectRegion={handleClickRegion} />
         </div>
       </section>
       <section className='mt-8 lg:mt-12 px-14 sm:px-4 pb-16'>
         <div className='max-w-[1280px] mx-auto'>
-          <Suspense fallback={<CountryListSkeleton />}>
-            <CountryList COUNTRY_LIST={allCountries} />
-          </Suspense>
+          <CountryList COUNTRY_LIST={filteredCountryList} />
         </div>
       </section>
     </>
